@@ -14,3 +14,10 @@ jobs:
 
       - name: "Login to Docker hub"
         run: docker login --username ${{ secrets.DOC_USER }} --password ${{ secrets.DOC_PASS }} 
+
+      - name: "Build docker image"
+        run: docker build -t ${{ secrets.DOC_USER }}/newimag .
+      
+      - name: "pushing to Docker hup"
+        run: docker push ${{ secrets.DOC_USER }}/newimag
+
